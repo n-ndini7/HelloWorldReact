@@ -17,8 +17,14 @@ class App extends React.Component{
         window.open(this.url, "_blank");
       }
     
-      onNameChannge = (event) => {
-        this.setState({title: event.target.value})
+      onNameChange = (event) => {
+        const nameRegex = RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
+        if(nameRegex.test(event.target.value)){
+          this.setState({title: event.target.value});
+          this.setState({nameError: ""});
+        }else{
+          this.setState({nameError: "Entered Name is Invalid!!"});
+        }
       }
     
       render (){
@@ -29,7 +35,7 @@ class App extends React.Component{
             <img src = {logo} onClick={this.onClick} alt = "logo"/>
           </div>
           <div className = "text-box">
-          <input onChange = {this.onNameChannge}/>
+          <input onChange = {this.onNameChange}/>
         </div>
         </div>
         );
