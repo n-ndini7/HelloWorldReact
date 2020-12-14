@@ -1,9 +1,10 @@
 import './App.css';
+import logo from './assets/logo2.png';
 
 import React from "react"
 class App extends React.Component{
 
-     //UC2
+     //UC3
      constructor(){
         super();
         this.state = {
@@ -14,6 +15,7 @@ class App extends React.Component{
         return (
           <div>
             <h1>{this.state.title}</h1>
+            <img src = {logo} alt = "logo"/>
           </div>
         );
       }
